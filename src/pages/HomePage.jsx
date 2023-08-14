@@ -55,27 +55,25 @@ export default function HomePage() {
     return (
       <HomeContainer>
         <HeaderSite />
-        <>
-        
-        {Serviços.map(serviço => {
-          if (serviço.isActive) {
-            return (
-              <ServiceDiv key={serviço.id}>
-                <h1>{serviço.serviceTitle}</h1>
-                <ServiceDesc>
-                  <img src={serviço.servicePhoto} alt="" />
-                  <div>
-                    <span>Preço: {serviço.price / 100}R$/{serviço.priceDescription} </span>
-                    <span>Prestador: {serviço.name } </span>
-                  </div>
-                </ServiceDesc>
-                
-
-              </ServiceDiv>
-            )
-          }}
-        )} 
-        </>
+        <ServiceSpace>
+          {Serviços.map(serviço => {
+            if (serviço.isActive) {
+              return (
+                <ServiceDiv key={serviço.id} onClick={() => navigate(`/service/${serviço.id}`)}>
+                  <h1>{serviço.serviceTitle}</h1>
+                  <ServiceDesc>
+                    <img src={serviço.servicePhoto} alt="" />
+                    <div>
+                      <span>Preço: {serviço.price / 100}R$/{serviço.priceDescription} </span>
+                      <span>Prestador: {serviço.name} </span>
+                    </div>
+                  </ServiceDesc>
+                </ServiceDiv>
+              )
+            }
+          }
+          )}
+        </ServiceSpace>
       </HomeContainer>
     );
   }
@@ -95,10 +93,13 @@ const Loading = styled.div`
   align-items: center;
 `;
 const ServiceDiv = styled.div`
-  width: 80%;
+  max-width: 600px;
   height: 200px;
   background: white;
-
+  :hover {
+    background: lightgray;
+    cursor: pointer;
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,4 +138,8 @@ const ServiceDesc = styled.div`
     font-size: 15px;
     font-weight: 300;
   }
-  `
+`
+const ServiceSpace = styled.div`
+  display: flex;
+  gap: 10px;
+`

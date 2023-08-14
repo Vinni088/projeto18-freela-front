@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import { createContext, useState } from "react";
+import ServiceIdPage from "./pages/ServiceIdPage";
 import CreateServicePage from "./pages/CreateServicePage";
 
 export const UserContext = createContext();
@@ -20,9 +21,8 @@ export default function App() {
             <Route path="/SignUp" element={<SignUpPage />} />
             <Route path="/Home" element={<HomePage />} />
             <Route path="/service/create" element={<CreateServicePage />} />
-            <Route path="/me" element={<HomePage />} />
-            <Route path="/service/:id" element={<HomePage />} />
-            
+            <Route path="/service/:id" element={<ServiceIdPage />} />
+            <Route path="/profile/me" element={<HomePage />} />
           </Routes>
         </BrowserRouter>
       </PagesContainer>

@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     * {
-        font-family: 'Raleway';
+        font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
         box-sizing: border-box;
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
     }
     a {
         font-weight: 700;
-        font-size: 15px;
+        font-size: 20px;
         line-height: 18px;
         color: white;
         text-decoration: none;

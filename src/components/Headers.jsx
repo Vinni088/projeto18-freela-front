@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function HeaderSite() {
   const navigate = useNavigate();
   return (
-    <>
+    <HeaderContainer>
       <DivHeader>
         <Logo />
         <Pointer>
@@ -19,13 +19,11 @@ export default function HeaderSite() {
         </Pointer>
       </DivHeader>
       <DivHeader>
-        <Link to={"/me"}> Meu Perfil </Link>
+        <Link to={"/profile/me"}> Meu Perfil </Link>
         <Link to={"/home"}> Home </Link>
         <Link to={"/service/create"}> Adicionar Serviço </Link>
-        
-        
       </DivHeader>
-    </>
+    </HeaderContainer>
   );
 }
 
@@ -38,6 +36,7 @@ const DivHeader = styled.div`
   font-size: 26px;
   color: white;
   a {
+    text-align: center;
     color: #ec6f66;
     width: 170px;
     height: 40px;
@@ -47,10 +46,13 @@ const DivHeader = styled.div`
     border-radius: 15px;
     padding-top: unset;
     :hover {
-      text-decoration: underline;
+      border: solid 1px #ec6f66;
     }
   }
 `;
 const Pointer = styled.div`
   cursor: pointer;
 `;
+const HeaderContainer = styled.div`
+
+`
