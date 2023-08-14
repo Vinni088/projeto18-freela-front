@@ -97,7 +97,7 @@ export default function CreateServicePage() {
     }
     return (
         <AddServiceContainer>
-            <LOGO />
+            <HeaderSite/>
             <FormSignup onSubmit={Cadastro}>
                 <InputSignup
                     placeholder="Titulo do serviço"
@@ -151,7 +151,6 @@ export default function CreateServicePage() {
 
                 <button type="submit">Cadastrar Serviço </button>
             </FormSignup>
-            <Link to={"/home"}> Retornar à Tela inicial? clique aqui </Link>
             {<ThreeDots height={"40"} color="#FFFFFF" visible={visivel} />}
 
         </AddServiceContainer>
@@ -166,12 +165,20 @@ const AddServiceLoading = styled.section`
 `;
 
 const AddServiceContainer = styled.section`
+
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  height: 100%;
+  
+  /*max-width: 90vw;
+  margin: 15px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 10px;*/
 `;
 
 const FormSignup = styled.form`
@@ -185,10 +192,9 @@ const FormSignup = styled.form`
   width: 100%;
   border-radius: 5px;
 `
-
 const InputSignup = styled.input`
   font-size: 20px;
-  width: calc(40%);
+  width: 40%;
   border-radius: 10px;
   outline: none;
   border: 1px solid #ccc;
@@ -214,7 +220,6 @@ const InputHint = styled.div`
       margin: 0px;
   }
 `
-
 const Loading = styled.div`
   height: 100%;
   width: 100%;

@@ -56,20 +56,37 @@ export default function ServiceIdPage() {
             <ServiceContainer>
                 <HeaderSite />
                 <ServiceSpace>
-                    <ServiceDesc>
-                        <Div1>
-                            <h1>{Serviço.serviceTitle}</h1>
-                            <img src={Serviço.servicePhoto} alt="" />
-                        </Div1>
-                        <Div2>
-                            <h2> Informações do Serviço: </h2>
-                            <span> Descrição do Provedor: </span>
-                            <h3> {Serviço.serviceDescription} </h3>
-                            <span> Precificação: </span>
-                            <h3> {(Number(Serviço.price)/100).toFixed(2)}R$ por {Serviço.priceDescription} </h3>
-                        </Div2>
-                    </ServiceDesc>
+                    <Div1>
+                        <h1>{Serviço.serviceTitle}</h1>
+                        <img src={Serviço.servicePhoto} alt="" />
+                    </Div1>
+                    <Div2>
+                        <h2> Informações do Serviço: </h2>
+                        <span> Descrição do Serviço: </span>
+                        <h3> {Serviço.serviceDescription} </h3>
+                        <span> Precificação: </span>
+                        <h3> {(Number(Serviço.price) / 100).toFixed(2)}R$ por {Serviço.priceDescription} </h3>
 
+                        <h2> Informações do provedor: </h2>
+                        <h3>
+                            <span> Nome: </span> {Serviço.serviceProvider}
+                        </h3>
+                        <h3>
+                            <span> Email: </span> {Serviço.email}
+                        </h3>
+                        <h3>
+                            <span> telefone: </span> {Serviço.phone}
+                        </h3>
+                        <h3>
+                            <span> Localidade: </span> {Serviço.city} - {Serviço.state}
+                        </h3>
+                        
+
+                    </Div2>
+                </ServiceSpace>
+                <ServiceSpace>
+                    <button> Vou entrar em contato! </button>
+                    <button> Já utilizei este serviço! </button>
                 </ServiceSpace>
             </ServiceContainer>
         );
@@ -90,22 +107,16 @@ const Loading = styled.div`
   align-items: center;
 `;
 const ServiceSpace = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 10px;
-  h1 {
-    padding-left: 40px;
-  }
-`
-const ServiceDesc = styled.div`
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
+  button {
+    width: 30%;
+  }
 `
 const Div1 = styled.div`
     width: 300px;
@@ -114,11 +125,12 @@ const Div1 = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     
     h1 {
         max-width: 300px;
         overflow: hidden;
+        color: #ec6f66;
     }
 
     img {
@@ -128,10 +140,14 @@ const Div1 = styled.div`
   }
 `
 const Div2 = styled.div`
+    padding: 10px;
+    border: 1px solid blue;
+    min-width: 300px;
+    min-height: 300px;
     display: flex;
     gap: 10px;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     span {
@@ -140,7 +156,7 @@ const Div2 = styled.div`
         font-weight: 700;
     }
     h2 {
-        color: white;
+        color: #ec6f66;
         font-size: 22px;
         font-weight: 700;
     }

@@ -33,7 +33,22 @@ export default function App() {
 const PagesContainer = styled.main`
   background-color: red;
   background-image: linear-gradient(180deg, #ffd89b , #ec6f66);
-  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
   padding: 10px;
+
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: gray;
+  }
 `;

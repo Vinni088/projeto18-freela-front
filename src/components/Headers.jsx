@@ -54,5 +54,5 @@ const Pointer = styled.div`
   cursor: pointer;
 `;
 const HeaderContainer = styled.div`
-
+width: 100%;
 `

@@ -82,7 +82,7 @@ export default function HomePage() {
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  margin: 15px;
   height: 100%;
 `;
 const Loading = styled.div`
@@ -141,5 +141,6 @@ const ServiceDesc = styled.div`
 `
 const ServiceSpace = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 `
