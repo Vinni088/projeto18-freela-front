@@ -92,8 +92,16 @@ const Loading = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const ServiceSpace = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+`
 const ServiceDiv = styled.div`
-  max-width: 600px;
+  width: 350px;
   height: 200px;
   background: white;
   :hover {
@@ -138,9 +146,4 @@ const ServiceDesc = styled.div`
     font-size: 15px;
     font-weight: 300;
   }
-`
-const ServiceSpace = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 `
