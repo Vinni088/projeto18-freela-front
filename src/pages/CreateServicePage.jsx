@@ -171,14 +171,6 @@ const AddServiceContainer = styled.section`
   margin: 15px;
   height: 100%;
   
-  /*max-width: 90vw;
-  margin: 15px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;*/
 `;
 
 const FormSignup = styled.form`

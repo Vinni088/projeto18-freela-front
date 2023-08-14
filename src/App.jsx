@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MePage from "./pages/MePage";
 import styled from "styled-components";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
@@ -6,6 +6,7 @@ import SignUpPage from "./pages/SignUpPage";
 import { createContext, useState } from "react";
 import ServiceIdPage from "./pages/ServiceIdPage";
 import CreateServicePage from "./pages/CreateServicePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -22,7 +23,7 @@ export default function App() {
             <Route path="/Home" element={<HomePage />} />
             <Route path="/service/create" element={<CreateServicePage />} />
             <Route path="/service/:id" element={<ServiceIdPage />} />
-            <Route path="/profile/me" element={<HomePage />} />
+            <Route path="/profile/me" element={<MePage />} />
           </Routes>
         </BrowserRouter>
       </PagesContainer>
