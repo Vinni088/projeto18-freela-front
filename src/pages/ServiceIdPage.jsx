@@ -15,6 +15,8 @@ export default function ServiceIdPage() {
     const User = useContext(UserContext).UserData;
     const setUser = useContext(UserContext).SetUserData;
     let [Serviço, SetServiço] = useState([]);
+    let [desabilitar1, setDesabilitar1] = useState(false)
+    let [desabilitar2, setDesabilitar2] = useState(false)
 
     /* Dados externos iniciais: */
     useEffect(() => {
@@ -41,6 +43,15 @@ export default function ServiceIdPage() {
             SetServiço(resposta.data);
         });
     }, []);
+
+    function contato() {
+        setDesabilitar1(true)
+        setTimeout(() => setDesabilitar1(false), 3000)
+    }
+    function rating() {
+        setDesabilitar2(true);
+        setTimeout(() => setDesabilitar2(false), 3000)
+    }
 
     if (!User || !Serviço) {
         return (
@@ -85,9 +96,25 @@ export default function ServiceIdPage() {
                     </Div2>
                 </ServiceSpace>
                 <ServiceSpace>
-                    <button> Vou entrar em contato! </button>
-                    <button> Já utilizei este serviço! </button>
+                    <button disabled={desabilitar1} onClick={() => contato()}> 
+                        Vou entrar em contato! 
+                    </button>
+                    <button disabled={desabilitar2} onClick={() => rating()}> 
+                        Já utilizei este serviço! 
+                    </button>
                 </ServiceSpace>
+                <PopUp escondido={desabilitar1}>
+                    Que bom! O GetSamurais Fica feliz em ajudar!
+                </PopUp>
+                <PopUp escondido={desabilitar2}>
+                    Que bom! Futuramente vamos compilar os feedbacks sobre os serviços!
+                </PopUp>
+                {/*<FeedbackDiv escondido={desabilitar2}>
+                    <form action="">
+                        Poderia compartilhar numa escala de 1 a 5 como foi sua experiencia com este serviço?
+                        <input type="text" />
+                    </form>
+        </FeedbackDiv>*/}
             </ServiceContainer>
         );
     }
@@ -141,7 +168,6 @@ const Div1 = styled.div`
 `
 const Div2 = styled.div`
     padding: 10px;
-    border: 1px solid blue;
     min-width: 300px;
     min-height: 300px;
     display: flex;
@@ -164,5 +190,38 @@ const Div2 = styled.div`
         color: white;
         font-size: 18px;
         font-weight: 500;
+        max-width: 300px;
     }
 `
+const FeedbackDiv = styled.div`
+    padding: 20px;
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    z-index: 3;
+    background-color: white;
+    border: 2px lightgray solid;
+    border-radius: 20px;
+    display: ${ props => props.escondido == true ? 'flex' : 'none'};
+    width: 60%;
+    height: 60%;
+`
+const PopUp = styled.div`
+    width: 220px;
+    height: 80px;
+    
+    position: fixed;
+    top: 180px;
+    right: ${ props => props.escondido == true ? '10px' : '-300px'};
+    z-index: 3;
+
+    background-color: white;
+    border: 2px lightgray solid;
+    border-radius: 20px;
+
+    display: flex ;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+`
+/*right: ${ (propriedade) => {propriedade.escondido === true ? '10px' : '200px'}};*/
