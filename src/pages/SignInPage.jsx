@@ -38,7 +38,6 @@ export default function SignInPage() {
   }
 
   function Sucesso(resposta) {
-    console.log(resposta);
     let token = resposta.data;
 
     let promisse = axios.post(`${url}/logged`, { token });

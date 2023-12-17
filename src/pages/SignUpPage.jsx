@@ -38,7 +38,6 @@ export default function SignUpPage() {
       city,
       state
     };
-    console.log(novoCadastro)
 
     const post = axios.post(`${url}/signup`, novoCadastro);
     setVisivel(true)
@@ -48,7 +47,6 @@ export default function SignUpPage() {
         `Houve um problema com seu cadastro: ${resposta.response.data}`
       );
       setVisivel(false)
-      console.log(resposta);
     });
   }
 

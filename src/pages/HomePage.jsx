@@ -37,7 +37,6 @@ export default function HomePage() {
 
     let promisse2 = axios.get(`${url}/jobs`);
     promisse2.then((resposta) => {
-      console.log(resposta);
       SetServiços(resposta.data);
     });
   }, []);

@@ -39,7 +39,6 @@ export default function ServiceIdPage() {
 
         let promisse2 = axios.get(`${url}/jobs/${params.id}`);
         promisse2.then((resposta) => {
-            console.log(resposta);
             SetServiço(resposta.data);
         });
     }, []);

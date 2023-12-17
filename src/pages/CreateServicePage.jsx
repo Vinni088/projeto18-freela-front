@@ -83,7 +83,7 @@ export default function CreateServicePage() {
                 `Houve um problema com seu cadastro: ${resposta.response.data}`
             );
             setVisivel(false)
-            console.log(resposta);
+            (resposta);
         });
     }
 

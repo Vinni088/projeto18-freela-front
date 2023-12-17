@@ -34,12 +34,10 @@ export default function MePage() {
 
       });
     }
-    console.log(tokenSessao)
     const chave = { headers: { Authorization: `Bearer ${tokenSessao}` } };
 
     let promisse2 = axios.get(`${url}/me`, chave);
     promisse2.then((resposta) => {
-      console.log(resposta);
       SetServiços(resposta.data);
     });
   }, []);
