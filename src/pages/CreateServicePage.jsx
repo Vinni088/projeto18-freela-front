@@ -48,15 +48,14 @@ export default function CreateServicePage() {
     }
 
     function requisição() {
-        if (
-            serviceTitle === "" || serviceDescription === "" ||
-            price === "" || priceDescription === "" || photoUrl === "" 
-        ) {
-            return alert("Todos os campos devem estar preenchidos")
+        if (![serviceTitle, serviceDescription, price, priceDescription, photoUrl].every(Boolean)) {
+            return alert("Todos os campos devem estar preenchidos");
         }
-        if(isNaN(price)) {
+
+        if (isNaN(price)) {
             return alert("o preço deve ser um numero")
         }
+
         let novoServiço = {
             serviceTitle,
             serviceDescription,
@@ -65,8 +64,8 @@ export default function CreateServicePage() {
             photoUrl,
             isActive: true
         };
-        
-        
+
+
 
         const chave = { headers: { Authorization: `Bearer ${User.token}` } };
 
@@ -82,7 +81,7 @@ export default function CreateServicePage() {
                 `Houve um problema com seu cadastro: ${resposta.response.data}`
             );
             setVisivel(false)
-            (resposta);
+                (resposta);
         });
     }
 
@@ -96,7 +95,7 @@ export default function CreateServicePage() {
     }
     return (
         <AddServiceContainer>
-            <HeaderSite/>
+            <HeaderSite />
             <FormSignup onSubmit={Cadastro}>
                 <InputSignup
                     placeholder="Titulo do serviço"
