@@ -4,7 +4,7 @@ import { UserContext } from "/src/App.jsx";
 import HeaderSite from "../components/Headers";
 import { ThreeDots } from "react-loader-spinner";
 import { useContext, useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ServiceIdPage() {
 
@@ -91,16 +91,16 @@ export default function ServiceIdPage() {
                         <h3>
                             <span> Localidade: </span> {Serviço.city} - {Serviço.state}
                         </h3>
-                        
+
 
                     </Div2>
                 </ServiceSpace>
                 <ServiceSpace>
-                    <button disabled={desabilitar1} onClick={() => contato()}> 
-                        Vou entrar em contato! 
+                    <button disabled={desabilitar1} onClick={() => contato()}>
+                        Vou entrar em contato!
                     </button>
-                    <button disabled={desabilitar2} onClick={() => rating()}> 
-                        Já utilizei este serviço! 
+                    <button disabled={desabilitar2} onClick={() => rating()}>
+                        Já utilizei este serviço!
                     </button>
                 </ServiceSpace>
                 <PopUp escondido={desabilitar1}>
@@ -193,26 +193,14 @@ const Div2 = styled.div`
         max-width: 300px;
     }
 `
-const FeedbackDiv = styled.div`
-    padding: 20px;
-    position: fixed;
-    left: 20%;
-    top: 20%;
-    z-index: 3;
-    background-color: white;
-    border: 2px lightgray solid;
-    border-radius: 20px;
-    display: ${ props => props.escondido == true ? 'flex' : 'none'};
-    width: 60%;
-    height: 60%;
-`
+
 const PopUp = styled.div`
     width: 220px;
     height: 80px;
     
     position: fixed;
     top: 180px;
-    right: ${ props => props.escondido == true ? '10px' : '-300px'};
+    right: ${props => props.escondido == true ? '10px' : '-300px'};
     z-index: 3;
 
     background-color: white;

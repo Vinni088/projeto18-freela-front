@@ -7,7 +7,7 @@ import Logo from "../components/Logo";
 import { useContext, useEffect, useState } from "react";
 
 export default function SignInPage() {
-  
+
   /* Variaveis de Estado */
   let [email, setEmail] = useState("");
   let [senha, setSenha] = useState("");
@@ -36,16 +36,12 @@ export default function SignInPage() {
     promisse.then((resposta) => Sucesso(resposta));
     promisse.catch((resposta) => Fail(resposta));
   }
+
   function Sucesso(resposta) {
     console.log(resposta);
     let token = resposta.data;
-    const chave = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
 
-    let promisse = axios.post(`${url}/logged`, {token});
+    let promisse = axios.post(`${url}/logged`, { token });
 
     promisse.then((resposta) => {
       setUser({
@@ -57,8 +53,9 @@ export default function SignInPage() {
       localStorage.setItem("token", `${token}`);
       navigate("/home");
     });
-    
+
   }
+
   function Fail(resposta) {
     alert(`${resposta.response.data}`);
     setVisivel(false);
@@ -74,7 +71,7 @@ export default function SignInPage() {
           },
         };
 
-        let promisse = axios.post(`${url}/logged`, {token: tokenSessao});
+        let promisse = axios.post(`${url}/logged`, { token: tokenSessao });
         promisse.then((resposta) => {
           setUser({
             id: resposta.data.id,
