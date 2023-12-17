@@ -8,7 +8,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function ServiceIdPage() {
 
-    /* Ferramentas da Página */
     const params = useParams()
     const navigate = useNavigate();
     const url = import.meta.env.VITE_API_URL;
@@ -18,7 +17,6 @@ export default function ServiceIdPage() {
     let [desabilitar1, setDesabilitar1] = useState(false)
     let [desabilitar2, setDesabilitar2] = useState(false)
 
-    /* Dados externos iniciais: */
     useEffect(() => {
         let tokenSessao = localStorage.getItem("token");
         if (!tokenSessao) {
@@ -108,12 +106,6 @@ export default function ServiceIdPage() {
                 <PopUp escondido={desabilitar2}>
                     Que bom! Futuramente vamos compilar os feedbacks sobre os serviços!
                 </PopUp>
-                {/*<FeedbackDiv escondido={desabilitar2}>
-                    <form action="">
-                        Poderia compartilhar numa escala de 1 a 5 como foi sua experiencia com este serviço?
-                        <input type="text" />
-                    </form>
-        </FeedbackDiv>*/}
             </ServiceContainer>
         );
     }
@@ -211,4 +203,3 @@ const PopUp = styled.div`
     justify-content: center;
     align-items: center;
 `
-/*right: ${ (propriedade) => {propriedade.escondido === true ? '10px' : '200px'}};*/

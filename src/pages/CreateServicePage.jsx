@@ -21,7 +21,6 @@ export default function CreateServicePage() {
     const navigate = useNavigate();
 
 
-    /* Dados externos iniciais: */
     useEffect(() => {
         let tokenSessao = localStorage.getItem("token");
         if (!tokenSessao) {

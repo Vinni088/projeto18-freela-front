@@ -7,14 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
 export default function MePage() {
-  /* Ferramentas da Página */
   const navigate = useNavigate();
   const url = import.meta.env.VITE_API_URL;
   const User = useContext(UserContext).UserData;
   const setUser = useContext(UserContext).SetUserData;
   let [Serviços, SetServiços] = useState([]);
 
-  /* Dados externos iniciais: */
   useEffect(() => {
     let tokenSessao = localStorage.getItem("token");
     if (!tokenSessao) {

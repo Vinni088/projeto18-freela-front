@@ -8,20 +8,16 @@ import { useContext, useEffect, useState } from "react";
 
 export default function SignInPage() {
 
-  /* Variaveis de Estado */
   let [email, setEmail] = useState("");
   let [senha, setSenha] = useState("");
   let [visivel, setVisivel] = useState(false);
 
-  /* Configurações da Página */
   const navigate = useNavigate();
   const url = import.meta.env.VITE_API_URL;
   const setUser = useContext(UserContext).SetUserData;
 
-  /* Token: existencia + uso */
   let tokenSessao = localStorage.getItem("token");
 
-  /* Funções de transição */
   function login(e) {
     e.preventDefault();
     setVisivel(true);
@@ -60,7 +56,7 @@ export default function SignInPage() {
     setVisivel(false);
   }
 
-  /* Se houver um Token: */
+
   if (tokenSessao) {
     useEffect(() => {
       if (tokenSessao) {
@@ -86,7 +82,6 @@ export default function SignInPage() {
     return <Centered>{<ThreeDots height={"80"} color="#FFFFFF" />}</Centered>;
   }
 
-  /* Se NÃO houver um Token: */
   if (!tokenSessao) {
     return (
       <SingInContainer>
